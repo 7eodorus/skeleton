@@ -21,3 +21,8 @@ yarn-error.log
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/skeleton.iml
+/.idea/vcs.xml
+/.idea/workspace.xml

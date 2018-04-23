@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello market!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; position: relative;}
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+    table {border-collapse: collapse; width: 100%;}
+    table td, table th {border: 1px solid black; padding: 4px 8px;}
+    table td:nth-of-type(3) {text-align: right; }
+
+    .notice {margin: 10px 0; padding: 4px 8px; color: white; }
+    .flash-notice {background-color: #aacd4e; }
+    .flash-error {background-color: #C82829; }
+
+    .alter-url {position: absolute; display: block; top: 16px; right: 0;}
+</style>
+
+<div class="example-wrapper">
+    <h1>✅ Корзина! </h1>
+
+    {% if (basket) %}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="notice flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <table>
+            <tr>
+                <th>Наименование</th>
+                <th>Автор</th>
+                <th>Стоимость</th>
+                <th>Количество</th>
+            </tr>
+            {% for id in basket|keys %}
+            <tr>
+                <td>{{ products[id].name }}</td>
+                <td>{{ products[id].author }}</td>
+                <td>{{ products[id].price }} $$</td>
+                <td>{{ basket[id] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <div class="notice flash-error">Корзина пуста</div>
+    {% endif %}
+
+    <a class="alter-url" href="/">Назад</a>
+</div>
+{% endblock %}

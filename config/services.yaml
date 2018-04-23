@@ -3,6 +3,19 @@
 parameters:
     locale: 'en'
 
+    products:
+        14:
+            id: 14
+            name: wings
+            price: 21
+            author: Nautilus Pompilius
+
+        88:
+            id: 88
+            name: one step closer
+            price: 31
+            author: Linkin Park
+
 services:
     # default configuration for services in *this* file
     _defaults:
